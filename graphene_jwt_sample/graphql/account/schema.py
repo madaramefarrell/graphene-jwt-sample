@@ -13,7 +13,6 @@ class accountQueries(graphene.ObjectType):
 
     def resolve_user(self, info, id):
         return graphene.Node.get_node_from_global_id(info, id, UserType)
-        
 
     def resolve_users(self, info):
         return User.objects.all()

@@ -12,14 +12,8 @@ class transportationQueries(graphene.ObjectType):
         id=graphene.Argument(graphene.ID, description="ID of the attribute."),)
     motos = graphene.ConnectionField(MotoConnection)
 
-    # moto = graphene.Field(MotoType,
-    #     id=graphene.Argument(graphene.ID, description="ID of the attribute."),)
-    # motos = graphene.ConnectionField(MotoConnection)
-
-
     def resolve_moto(self, info, id):
         return graphene.Node.get_node_from_global_id(info, id, MotoType)
         
-
     def resolve_motos(self, info):
         return models.moto.objects.all()

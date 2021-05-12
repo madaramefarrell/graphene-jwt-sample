@@ -24,9 +24,6 @@ def jwt_payload(user, context=None):
         'exp': jwt_expires,
     }
 
-    # aud must be user ID
-    # payload['aud'] += user_id
-
     if scope == []:
         payload['scope'] += ["*"]
 
